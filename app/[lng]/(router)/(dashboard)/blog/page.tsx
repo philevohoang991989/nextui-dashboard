@@ -9,9 +9,9 @@ export default function BlogPage ()  {
   return (
     <section className='py-36'>
       <div className='container flex items-center justify-center'>
-        <Card className='py-4 lg:w-3/4 xl:w-1/2'>
+        <Card className='py-4 '>
           <CardBody className='overflow-visible py-2'>
-            <div className='flex gap-6 sm:flex-col md:flex-col lg:flex-row'>
+            <div className='flex flex-wrap'>
               <Image alt='Shoe' className='flex-1 object-cover' src={shoe} />
               <div className='flex-1'>
                 <h2 className='text-lg font-bold uppercase'>
