@@ -1,9 +1,12 @@
 'use client'
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Input, Checkbox } from "@nextui-org/react";
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import { LoginSchema } from '@/validation/login';
 import { zodResolver } from '@hookform/resolvers/zod'
+import {useRouter} from 'next/navigation';
+import { signIn } from 'next-auth/react';
+import { useParams } from 'next/navigation';
 
 type LoginForm = {
   email: string
@@ -12,7 +15,8 @@ type LoginForm = {
 }
 
 export default function Login() {
-
+  const params = useParams();
+  const router = useRouter();
   const { register, handleSubmit, control, formState: { errors, isSubmitting }, watch } = useForm<LoginForm>({
     defaultValues: {
       email: '',
@@ -21,9 +25,19 @@ export default function Login() {
     },
     resolver: zodResolver(LoginSchema)
   })
-  const onSubmit: SubmitHandler<LoginForm> = (data) => {
-    console.log({ data });
+  const onSubmit: SubmitHandler<LoginForm> = async (data) => {
+    console.log('Success:', data);
+    const signInData = await signIn('credentials', {
+      username: data.email,
+      password: data.password,
+      redirect: false,
+    });
 
+    if (signInData?.error) {
+      alert('Oops! Something when wrong!');
+    } else {
+      router.push(`/${params.lng}/blog`);
+    }
   }
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">

@@ -29,11 +29,14 @@ import {
 
 import { Logo } from "@/components/icons";
 import React from "react";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 
 export const Navbar: React.FC = () => {
   const params = useParams();
-  
+  const pathname = usePathname();
+  const param = pathname.split("/");
+
+
   const searchInput = (
     <Input
       aria-label="Search"
@@ -66,7 +69,7 @@ export const Navbar: React.FC = () => {
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item) => (
-            <NavbarItem key={`${params.lng}${item.href}`}>
+            <NavbarItem key={`${params.lng}${item.href}`} className={param[2] === (item.label).toLocaleLowerCase() ? 'active' : ''}>
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
@@ -131,8 +134,8 @@ export const Navbar: React.FC = () => {
                   index === 2
                     ? "primary"
                     : index === siteConfig.navMenuItems.length - 1
-                    ? "danger"
-                    : "foreground"
+                      ? "danger"
+                      : "foreground"
                 }
                 href="#"
                 size="lg"
