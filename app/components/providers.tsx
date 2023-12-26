@@ -23,7 +23,7 @@ const Provider: FC<ProviderProps> = ({ children }) => {
         
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           themes={["light", "dark"]}
         //   enableSystem={true}
         >
