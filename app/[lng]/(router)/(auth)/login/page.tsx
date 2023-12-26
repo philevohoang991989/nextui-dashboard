@@ -42,6 +42,7 @@ export default function Login() {
             label="Email address"
             type="email"
             autoComplete='off'
+            disabled={isSubmitting}
             {...register('email')}
             placeholder="Enter your email"
           />
@@ -51,6 +52,7 @@ export default function Login() {
             type="password"
             {...register('password')}
             placeholder="Enter your password"
+            disabled={isSubmitting}
             autoComplete='off'
           />
           {errors.password?.message && <span>{errors.password?.message}</span>}
@@ -58,6 +60,7 @@ export default function Login() {
             <Button
               color='primary'
               type="submit" className="w-full"
+              disabled={isSubmitting}
             >
               Sign in
             </Button>
