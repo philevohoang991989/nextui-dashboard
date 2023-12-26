@@ -29,8 +29,6 @@ export const ThemeSwitch: FC = () => {
 			startContent={<SunIcon />}
 			endContent={<MoonIcon />}
 			onChange={onChange}
-		>
-			Dark mode
-		</Switch>
+		/>
 	);
 };
