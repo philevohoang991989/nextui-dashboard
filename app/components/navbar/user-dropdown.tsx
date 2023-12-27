@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Button,
   Dropdown,
   DropdownItem,
   DropdownMenu,
@@ -8,7 +9,6 @@ import {
   NavbarItem,
 } from "@nextui-org/react";
 import React from "react";
-import { DarkModeSwitch } from "./darkmodeswitch";
 
 export const UserDropdown = () => {
   return (
@@ -30,9 +30,9 @@ export const UserDropdown = () => {
         <DropdownItem
           key="profile"
           className="flex flex-col justify-start w-full items-start"
+          description="zoey@example.com"
         >
-          <p>Signed in as</p>
-          <p>zoey@example.com</p>
+          Signed in as
         </DropdownItem>
         <DropdownItem key="settings">My Settings</DropdownItem>
         <DropdownItem key="team_settings">Team Settings</DropdownItem>
@@ -43,9 +43,7 @@ export const UserDropdown = () => {
         <DropdownItem key="logout" color="danger" className="text-danger ">
           Log Out
         </DropdownItem>
-        <DropdownItem key="switch">
-          <DarkModeSwitch />
-        </DropdownItem>
+        
       </DropdownMenu>
     </Dropdown>
   );

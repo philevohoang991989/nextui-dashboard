@@ -19,12 +19,13 @@ import { SidebarMenu } from "./sidebar-menu";
 import { FilterIcon } from "@/components/icons/filter-icon";
 import { useSidebarContext } from "../layout/layout-context";
 import { ChangeLogIcon } from "@/components/icons/changelog-icon";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export const SidebarWrapper = () => {
   const router: any = useRouter();
   const { collapsed, setCollapsed } = useSidebarContext();
-
+  const pathname = usePathname();
+  const param = pathname.split("/");
   return (
     <aside className="h-screen z-[202] sticky top-0">
       {collapsed ? (
@@ -43,7 +44,7 @@ export const SidebarWrapper = () => {
             <SidebarItem
               title="Home"
               icon={<HomeIcon />}
-              isActive={router.pathname === "/"}
+              isActive={param[2] === "home"}
               href="/"
             />
             <SidebarMenu title="Main Menu">
