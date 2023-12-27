@@ -5,13 +5,13 @@ import React from 'react';
 import Image from 'next/image'
 import shoe from '@/assets/shoe.webp'
 
-function wait(){
-  return new Promise((resolve: any, rejects: any)=>{
-    setTimeout(()=>resolve(), 3000)
-  })
-}
+// function wait(){
+//   return new Promise((resolve: any, rejects: any)=>{
+//     setTimeout(()=>resolve(), 3000)
+//   })
+// }
 export default async function BlogPage ()  {
-    await wait()
+    // await wait()
   return (
     <section className='py-36'>
       <div className='container flex items-center justify-center'>
