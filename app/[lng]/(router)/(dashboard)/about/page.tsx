@@ -2,13 +2,20 @@
 import { Chip } from "@nextui-org/react";
 import React, { ReactNode } from "react";
 
-export default function AboutPage({
+function wait(){
+  return new Promise((resolve: any, rejects: any)=>{
+    setTimeout(()=>resolve(), 3000)
+  })
+}
+
+export default async function AboutPage({
   params: { lng },
 }: {
   params: {
     lng: string;
   };
 }) {
+  await wait();
   return (
     <section>
       AboutPage
