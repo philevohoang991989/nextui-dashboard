@@ -27,7 +27,15 @@ export const UserDropdown = () => {
       </NavbarItem>
       <DropdownMenu
         aria-label="User menu actions"
-        onAction={(actionKey) => console.log({ actionKey })}
+        onAction={async(actionKey) => {
+          console.log({actionKey});
+          
+          if( actionKey === 'logout'){
+            await signOut()
+            await window.location.reload()
+          }
+          
+        }}
       >
         <DropdownItem
           key="profile"
@@ -42,11 +50,7 @@ export const UserDropdown = () => {
         <DropdownItem key="system">System</DropdownItem>
         <DropdownItem key="configurations">Configurations</DropdownItem>
         <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
-        <DropdownItem key="logout" color="danger" className="text-danger ">
-          <Link href="#" color="primary" onClick={async () => {
-            await signOut()
-            await window.location.reload()
-          }}>Log Out</Link>
+        <DropdownItem key="logout" color="danger" className="text-danger ">Log Out
         </DropdownItem>
 
       </DropdownMenu>
