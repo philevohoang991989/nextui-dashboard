@@ -23,7 +23,7 @@ export default function Content() {
         <div className="mt-6 gap-6 flex flex-col w-full">
           {/* Card Section Top */}
           <div className="flex flex-col gap-2">
-            <h3 className="text-xl font-semibold">Available Balance</h3>
+            <h3 className="text-xl font-semibold dark:text-[#fff]">Available Balance</h3>
             <div className="grid md:grid-cols-2 grid-cols-1 2xl:grid-cols-3 gap-5  justify-center w-full">
               <CardBalance1 />
               <CardBalance2 />
@@ -32,7 +32,7 @@ export default function Content() {
           </div>
  {/* Chart */}
  <div className="h-full flex flex-col gap-2">
-          <h3 className="text-xl font-semibold">Statistics</h3>
+          <h3 className="text-xl font-semibold dark:text-[#fff]">Statistics</h3>
           <div className="w-full bg-default-50 shadow-lg rounded-2xl p-6 ">
             <Chart />
           </div>

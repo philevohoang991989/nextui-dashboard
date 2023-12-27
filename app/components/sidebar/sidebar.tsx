@@ -19,10 +19,11 @@ import { SidebarMenu } from "./sidebar-menu";
 import { FilterIcon } from "@/components/icons/filter-icon";
 import { useSidebarContext } from "../layout/layout-context";
 import { ChangeLogIcon } from "@/components/icons/changelog-icon";
-import { usePathname, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 
 export const SidebarWrapper = () => {
   const router: any = useRouter();
+  const params = useParams();
   const { collapsed, setCollapsed } = useSidebarContext();
   const pathname = usePathname();
   const param = pathname.split("/");
@@ -45,7 +46,7 @@ export const SidebarWrapper = () => {
               title="Home"
               icon={<HomeIcon />}
               isActive={param[2] === "home"}
-              href="/"
+              href={`/${params.lng}/home`}
             />
             <SidebarMenu title="Main Menu">
               <SidebarItem

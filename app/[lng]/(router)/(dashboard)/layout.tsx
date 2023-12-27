@@ -20,7 +20,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       setCollapsed: handleToggleSidebar,
     }}
   >
-    <section className="flex">
+    <section className="flex dark:bg-[#27272B]" >
       <SidebarWrapper />
       <NavbarWrapper>{children}</NavbarWrapper>
     </section>
