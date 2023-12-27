@@ -4,7 +4,7 @@ import React, { ReactNode } from "react";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
-    <section>
+    <section className="h-[100vh]">
       <Navbar />
       {children}
     </section>
