@@ -1,4 +1,4 @@
-import { Input, Link, Navbar, NavbarContent } from "@nextui-org/react";
+import { Input, Kbd, Link, Navbar, NavbarContent } from "@nextui-org/react";
 import React from "react";
 import { FeedbackIcon } from "@/components/icons/feedback-icon";
 import { GithubIcon } from "@/components/icons/github-icon";
@@ -18,7 +18,7 @@ export const NavbarWrapper = ({ children }: Props) => {
     <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
       <Navbar
         isBordered
-        className="w-full"
+        className="w-full bg-[#fff]"
         classNames={{
           wrapper: "w-full max-w-full",
         }}
@@ -28,14 +28,22 @@ export const NavbarWrapper = ({ children }: Props) => {
         </NavbarContent>
         <NavbarContent className="w-full max-md:hidden">
           <Input
-            startContent={<SearchIcon />}
-            isClearable
-            className="w-full"
+            aria-label="Search"
             classNames={{
-              input: "w-full",
-              mainWrapper: "w-full",
+              inputWrapper: "bg-default-100",
+              input: "text-sm",
             }}
+            endContent={
+              <Kbd className="hidden lg:inline-block" keys={["command"]}>
+                K
+              </Kbd>
+            }
+            labelPlacement="outside"
             placeholder="Search..."
+            startContent={
+              <SearchIcon />
+            }
+            type="search"
           />
         </NavbarContent>
         <NavbarContent
