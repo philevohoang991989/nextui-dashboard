@@ -5,9 +5,11 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
+  Link,
   Navbar,
   NavbarItem,
 } from "@nextui-org/react";
+import { signOut } from "next-auth/react";
 import React from "react";
 
 export const UserDropdown = () => {
@@ -41,9 +43,12 @@ export const UserDropdown = () => {
         <DropdownItem key="configurations">Configurations</DropdownItem>
         <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
         <DropdownItem key="logout" color="danger" className="text-danger ">
-          Log Out
+          <Link href="#" color="primary" onClick={async () => {
+            await signOut()
+            await window.location.reload()
+          }}>Log Out</Link>
         </DropdownItem>
-        
+
       </DropdownMenu>
     </Dropdown>
   );
